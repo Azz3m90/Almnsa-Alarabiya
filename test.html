@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base target="_self">
+    <title>The Arab Platform | Training & Consulting Services</title>
+    <meta name="description" content="Professional training, IT consulting, and HR management services in both Arabic and English">
+    <meta name="keywords" content="training, consulting, HR, IT, cybersecurity, digital transformation, arabic, english">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [lang="ar"] {
+            direction: rtl;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .rtl-support {
+            direction: rtl;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .flip-on-rtl {
+            transform: scaleX(-1);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .language-switcher {
+            transition: all 0.3s ease;
+        }
+        .language-switcher:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .nav-link.active {
+            color: rgb(34, 197, 94);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Language Data -->
+    <script>
+        const content = {
+            en: {
+                nav: {
+                    home: "Home",
+                    about: "About Us",
+                    services: "Services",
+                    blog: "Blog",
+                    contact: "Contact"
+                },
+                hero: {
+                    title: "Empowering Organizations Through Knowledge",
+                    subtitle: "Comprehensive training, IT consulting, and HR solutions tailored for the Arab business landscape",
+                    cta: "Get Started"
+                },
+                about: {
+                    title: "About The Arab Platform",
+                    mission: "Our Mission",
+                    missionText: "To bridge the knowledge gap in the Arab world by delivering world-class training and consulting services that drive digital transformation and organizational excellence. We are committed to empowering businesses with the tools and knowledge needed to thrive in today's competitive environment.",
+                    experience: "Our Experience",
+                    experienceText: "Founded in 2010, The Arab Platform has established itself as a regional leader in professional development. Our team of 50+ certified experts has successfully delivered 1,200+ projects across 8 countries, helping organizations optimize their operations, secure their digital assets, and develop their human capital."
+                },
+                services: {
+                    title: "Our Specialized Services",
+                    training: {
+                        title: "Training Programs",
+                        items: [
+                            "Professional Certifications (PMP, CISSP, ITIL)",
+                            "Corporate Training Programs",
+                            "Leadership & Management Development",
+                            "Technical Skills Training",
+                            "Customized Learning Solutions",
+                            "E-Learning Platform Access"
+                        ]
+                    },
+                    consulting: {
+                        title: "IT Consulting",
+                        items: [
+                            "IT Infrastructure Design & Implementation",
+                            "Comprehensive Cybersecurity Solutions",
+                            "Digital Transformation Roadmaps",
+                            "Cloud Migration Strategies",
+                            "Enterprise Software Implementation",
+                            "IT Governance & Compliance"
+                        ]
+                    },
+                    hr: {
+                        title: "HR Management",
+                        items: [
+                            "HR Policy Development & Implementation",
+                            "Performance Management Systems",
+                            "Talent Acquisition Strategies",
+                            "Employee Engagement Programs",
+                            "Compensation & Benefits Design",
+                            "Organizational Development"
+                        ]
+                    }
+                },
+                blog: {
+                    title: "Latest Insights",
+                    readMore: "Read More",
+                    posts: [
+                        {
+                            title: "The Future of Digital Transformation in the Arab World",
+                            excerpt: "How regional organizations are leveraging technology to gain competitive advantage in key sectors like finance, healthcare, and government services.",
+                            date: "June 15, 2023"
+                        },
+                        {
+                            title: "Building Cybersecurity Resilience in Middle Eastern Enterprises",
+                            excerpt: "Key strategies for developing robust cybersecurity frameworks that protect against evolving threats in the region's digital landscape.",
+                            date: "May 28, 2023"
+                        },
+                        {
+                            title: "HR Trends Shaping the Future of Work in the GCC",
+                            excerpt: "An in-depth look at how workforce expectations are changing and what organizations need to do to attract and retain top talent.",
+                            date: "April 10, 2023"
+                        }
+                    ]
+                },
+                contact: {
+                    title: "Get In Touch With Our Experts",
+                    form: {
+                        name: "Your Name",
+                        email: "Email Address",
+                        phone: "Phone Number",
+                        message: "Your Message",
+                        submit: "Send Message"
+                    },
+                    info: {
+                        title: "Contact Information",
+                        address: "Office 203, Business Gate Building, King Abdullah Road, Riyadh 11543, Saudi Arabia",
+                        phone: "+966 11 123 4567",
+                        email: "info@arabplatform.com",
+                        hours: "Sunday-Thursday: 8:00 AM - 5:00 PM"
+                    }
+                },
+                footer: {
+                    quickLinks: "Quick Links",
+                    services: "Our Services",
+                    copyright: "© 2023 The Arab Platform. All rights reserved."
+                }
+            },
+            ar: {
+                nav: {
+                    home: "الرئيسية",
+                    about: "من نحن",
+                    services: "خدماتنا",
+                    blog: "المدونة",
+                    contact: "اتصل بنا"
+                },
+                hero: {
+                    title: "تمكين المنظمات من خلال المعرفة",
+                    subtitle: "حلول تدريب واستشارات تقنية وموارد بشرية مصممة خصيصًا لبيئة الأعمال العربية",
+                    cta: "ابدأ الآن"
+                },
+                about: {
+                    title: "عن المنصة العربية",
+                    mission: "مهمتنا",
+                    missionText: "سد الفجوة المعرفية في العالم العربي من خلال تقديم خدمات تدريب واستشارات عالمية المستوى تعزز التحول الرقمي والتميز التنظيمي. نحن ملتزمون بتمكين الشركات بالأدوات والمعرفة اللازمة للنجاح في البيئة التنافسية الحالية.",
+                    experience: "خبرتنا",
+                    experienceText: "تأسست المنصة العربية عام 2010 وأصبحت رائدة في مجال التطوير المهني على مستوى المنطقة. فريقنا المكون من أكثر من 50 خبيرًا معتمدًا نجح في تنفيذ أكثر من 1200 مشروع في 8 دول، ساعدنا من خلالها المنظمات على تحسين عملياتها وتأمين أصولها الرقمية وتطوير رأس مالها البشري."
+                },
+                services: {
+                    title: "خدماتنا المتخصصة",
+                    training: {
+                        title: "برامج التدريب",
+                        items: [
+                            "الشهادات المهنية (PMP, CISSP, ITIL)",
+                            "برامج التدريب المؤسسي",
+                            "تطوير القيادة والإدارة",
+                            "تدريب المهارات التقنية",
+                            "حلول تعليمية مخصصة",
+                            "وصول لمنصة التعلم الإلكتروني"
+                        ]
+                    },
+                    consulting: {
+                        title: "استشارات تكنولوجيا المعلومات",
+                        items: [
+                            "تصميم وتنفيذ البنية التحتية لتكنولوجيا المعلومات",
+                            "حلول شاملة للأمن السيبراني",
+                            "خطط التحول الرقمي",
+                            "استراتيجيات الهجرة إلى السحابة",
+                            "تنفيذ برامج المؤسسات",
+                            "حوكمة تكنولوجيا المعلومات والامتثال"
+                        ]
+                    },
+                    hr: {
+                        title: "إدارة الموارد البشرية",
+                        items: [
+                            "تطوير وتنفيذ سياسات الموارد البشرية",
+                            "أنظمة إدارة الأداء",
+                            "استراتيجيات اكتشاف المواهب",
+                            "برامج مشاركة الموظفين",
+                            "تصميم التعويضات والمزايا",
+                            "التطوير التنظيمي"
+                        ]
+                    }
+                },
+                blog: {
+                    title: "أحدث المقالات",
+                    readMore: "اقرأ المزيد",
+                    posts: [
+                        {
+                            title: "مستقبل التحول الرقمي في العالم العربي",
+                            excerpt: "كيف تستفيد المنظمات الإقليمية من التكنولوجيا لتحقيق ميزة تنافسية في قطاعات رئيسية مثل التمويل والرعاية الصحية والخدمات الحكومية.",
+                            date: "15 يونيو 2023"
+                        },
+                        {
+                            title: "بناء المرونة الأمنية في مؤسسات الشرق الأوسط",
+                            excerpt: "استراتيجيات رئيسية لتطوير أطر أمنية قوية تحمي من التهديدات المتطورة في المشهد الرقمي للمنطقة.",
+                            date: "28 مايو 2023"
+                        },
+                        {
+                            title: "اتجاهات الموارد البشرية التي تشكل مستقبل العمل في دول الخليج",
+                            excerpt: "نظرة متعمقة على كيفية تغير توقعات القوى العاملة وما تحتاجه المنظمات لجذب والاحتفاظ بأفضل المواهب.",
+                            date: "10 أبريل 2023"
+                        }
+                    ]
+                },
+                contact: {
+                    title: "تواصل مع خبرائنا",
+                    form: {
+                        name: "اسمك",
+                        email: "البريد الإلكتروني",
+                        phone: "رقم الهاتف",
+                        message: "رسالتك",
+                        submit: "إرسال الرسالة"
+                    },
+                    info: {
+                        title: "معلومات الاتصال",
+                        address: "مكتب 203، مبنى بوابة الأعمال، طريق الملك عبدالله، الرياض 11543، المملكة العربية السعودية",
+                        phone: "+966 11 123 4567",
+                        email: "info@arabplatform.com",
+                        hours: "الأحد-الخميس: 8:00 صباحًا - 5:00 مساءً"
+                    }
+                },
+                footer: {
+                    quickLinks: "روابط سريعة",
+                    services: "خدماتنا",
+                    copyright: "© 2023 المنصة العربية. جميع الحقوق محفوظة."
+                }
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            updateContent();
+            updateActiveNav();
+        }
+
+        function updateContent() {
+            const langData = content[currentLanguage];
+            
+            // Navigation
+            document.getElementById('nav-home').textContent = langData.nav.home;
+            document.getElementById('nav-about').textContent = langData.nav.about;
+            document.getElementById('nav-services').textContent = langData.nav.services;
+            document.getElementById('nav-blog').textContent = langData.nav.blog;
+            document.getElementById('nav-contact').textContent = langData.nav.contact;
+            
+            // Hero Section
+            document.getElementById('hero-title').textContent = langData.hero.title;
+            document.getElementById('hero-subtitle').textContent = langData.hero.subtitle;
+            document.getElementById('hero-cta').textContent = langData.hero.cta;
+            
+            // About Section
+            document.getElementById('about-title').textContent = langData.about.title;
+            document.getElementById('mission-title').textContent = langData.about.mission;
+            document.getElementById('mission-text').textContent = langData.about.missionText;
+            document.getElementById('experience-title').textContent = langData.about.experience;
+            document.getElementById('experience-text').textContent = langData.about.experienceText;
+            
+            // Services Section
+            document.getElementById('services-title').textContent = langData.services.title;
+            document.getElementById('training-title').textContent = langData.services.training.title;
+            document.getElementById('consulting-title').textContent = langData.services.consulting.title;
+            document.getElementById('hr-title').textContent = langData.services.hr.title;
+            
+            // Update service items
+            const trainingItems = document.getElementById('training-items');
+            trainingItems.innerHTML = langData.services.training.items.map(item => `<li class="flex items-center mb-2"><i class="fas fa-check-circle text-primary-500 mr-2 rtl:ml-2 rtl:mr-0"></i>${item}</li>`).join('');
+            
+            const consultingItems = document.getElementById('consulting-items');
+            consultingItems.innerHTML = langData.services.consulting.items.map(item => `<li class="flex items-center mb-2"><i class="fas fa-check-circle text-primary-500 mr-2 rtl:ml-2 rtl:mr-0"></i>${item}</li>`).join('');
+            
+            const hrItems = document.getElementById('hr-items');
+            hrItems.innerHTML = langData.services.hr.items.map(item => `<li class="flex items-center mb-2"><i class="fas fa-check-circle text-primary-500 mr-2 rtl:ml-2 rtl:mr-0"></i>${item}</li>`).join('');
+            
+            // Blog Section
+            document.getElementById('blog-title').textContent = langData.blog.title;
+            document.getElementById('read-more').textContent = langData.blog.readMore;
+            
+            const blogPosts = document.getElementById('blog-posts');
+            blogPosts.innerHTML = langData.blog.posts.map(post => `
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">${post.title}</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">${post.excerpt}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">${post.date}</span>
+                            <a href="#" class="text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-medium">${langData.blog.readMore}</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Contact Section
+            document.getElementById('contact-title').textContent = langData.contact.title;
+            document.getElementById('contact-name').placeholder = langData.contact.form.name;
+            document.getElementById('contact-email').placeholder = langData.contact.form.email;
+            document.getElementById('contact-phone').placeholder = langData.contact.form.phone;
+            document.getElementById('contact-message').placeholder = langData.contact.form.message;
+            document.getElementById('contact-submit').textContent = langData.contact.form.submit;
+            document.getElementById('contact-info-title').textContent = langData.contact.info.title;
+            document.getElementById('contact-address').textContent = langData.contact.info.address;
+            document.getElementById('contact-phone-info').textContent = langData.contact.info.phone;
+            document.getElementById('contact-email-info').textContent = langData.contact.info.email;
+            document.getElementById('contact-hours').textContent = langData.contact.info.hours;
+            
+            // Footer
+            document.getElementById('footer-quick-links').textContent = langData.footer.quickLinks;
+            document.getElementById('footer-services').textContent = langData.footer.services;
+            document.getElementById('footer-copyright').textContent = langData.footer.copyright;
+            
+            // Adjust layout for RTL
+            const rtlElements = document.querySelectorAll('.rtl-adjust');
+            rtlElements.forEach(el => {
+                if (currentLanguage === 'ar') {
+                    el.classList.add('rtl-support');
+                } else {
+                    el.classList.remove('rtl-support');
+                }
+            });
+            
+            // Flip icons for RTL
+            const flipIcons = document.querySelectorAll('.flip-icon');
+            flipIcons.forEach(icon => {
+                if (currentLanguage === 'ar') {
+                    icon.classList.add('flip-on-rtl');
+                } else {
+                    icon.classList.remove('flip-on-rtl');
+                }
+            });
+        }
+
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 300)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize with English
+            setLanguage('en');
+            
+            // Handle language switcher
+            document.getElementById('lang-en').addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+            });
+            
+            document.getElementById('lang-ar').addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('ar');
+            });
+            
+            // Handle smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Handle form submission
+            document.getElementById('contact-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const formValues = Object.fromEntries(formData.entries());
+                
+                // Simple validation
+                if (!formValues.name || !formValues.email || !formValues.message) {
+                    alert(currentLanguage === 'en' ? 'Please fill in all required fields.' : 'الرجاء ملء جميع الحقول المطلوبة.');
+                    return;
+                }
+                
+                // Here you would typically send the form data to a server
+                console.log('Form submitted:', formValues);
+                
+                // Show success message
+                alert(currentLanguage === 'en' ? 'Thank you for your message! We will contact you soon.' : 'شكرًا على رسالتك! سنتواصل معك قريبًا.');
+                e.target.reset();
+            });
+        });
+    </script>
+
+    <!-- Navigation -->
+    <header class="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary-600 dark:text-primary-400">
+                        <span class="flex items-center">
+                            <i class="fas fa-globe-africa mr-2"></i>
+                            <span>The Arab Platform</span>
+                        </span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8 rtl-adjust">
+                    <a href="#home" id="nav-home" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                    <a href="#about" id="nav-about" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                    <a href="#services" id="nav-services" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                    <a href="#blog" id="nav-blog" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                    <a href="#contact" id="nav-contact" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                    
+                    <div class="flex items-center space-x-2 rtl-adjust">
+                        <button id="lang-en" class="language-switcher px-3 py-1 rounded-md text-sm font-medium bg-primary-100 dark:bg-gray-700 text-primary-700 dark:text-primary-300">
+                            EN
+                        </button>
+                        <button id="lang-ar" class="language-switcher px-3 py-1 rounded-md text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                            AR
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 rtl-adjust">
+                <a href="#home" id="mobile-nav-home" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                <a href="#about" id="mobile-nav-about" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                <a href="#services" id="mobile-nav-services" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                <a href="#blog" id="mobile-nav-blog" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                <a href="#contact" id="mobile-nav-contact" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 nav-link"></a>
+                
+                <div class="flex items-center space-x-2 mt-4 rtl-adjust">
+                    <button id="mobile-lang-en" class="language-switcher px-3 py-1 rounded-md text-sm font-medium bg-primary-100 dark:bg-gray-700 text-primary-700 dark:text-primary-300">
+                        EN
+                    </button>
+                    <button id="mobile-lang-ar" class="language-switcher px-3 py-1 rounded-md text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                        AR
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 bg-gradient-to-r from-primary-50 to-primary-100 dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 rtl-adjust">
+                    <h1 id="hero-title" class="text-4xl md:text-5xl font-bold mb-6 leading-tight"></h1>
+                    <p id="hero-subtitle" class="text-xl text-gray-700 dark:text-gray-300 mb-8"></p>
+                    <a href="#contact" id="hero-cta" class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300"></a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Team meeting" 
+                         class="rounded-lg shadow-xl w-full max-w-md h-auto"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white dark:bg-gray-800">
+        <div class="container mx-auto">
+            <h2 id="about-title" class="text-3xl font-bold text-center mb-16"></h2>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" 
+                         alt="About us" 
+                         class="rounded-lg shadow-md w-full h-auto"
+                         loading="lazy">
+                </div>
+                
+                <div class="md:w-1/2 rtl-adjust">
+                    <div class="mb-10">
+                        <h3 id="mission-title" class="text-2xl font-semibold mb-4 text-primary-600 dark:text-primary-400"></h3>
+                        <p id="mission-text" class="text-gray-700 dark:text-gray-300"></p>
+                    </div>
+                    
+                    <div>
+                        <h3 id="experience-title" class="text-2xl font-semibold mb-4 text-primary-600 dark:text-primary-400"></h3>
+                        <p id="experience-text" class="text-gray-700 dark:text-gray-300"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto">
+            <h2 id="services-title" class="text-3xl font-bold text-center mb-16"></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Training Card -->
+                <div class="service-card bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-chalkboard-teacher text-3xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                    </div>
+                    <h3 id="training-title" class="text-xl font-semibold mb-4 text-center"></h3>
+                    <ul id="training-items" class="text-gray-700 dark:text-gray-300"></ul>
+                </div>
+                
+                <!-- Consulting Card -->
+                <div class="service-card bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-laptop-code text-3xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                    </div>
+                    <h3 id="consulting-title" class="text-xl font-semibold mb-4 text-center"></h3>
+                    <ul id="consulting-items" class="text-gray-700 dark:text-gray-300"></ul>
+                </div>
+                
+                <!-- HR Card -->
+                <div class="service-card bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-users text-3xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                    </div>
+                    <h3 id="hr-title" class="text-xl font-semibold mb-4 text-center"></h3>
+                    <ul id="hr-items" class="text-gray-700 dark:text-gray-300"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 px-6 bg-white dark:bg-gray-800">
+        <div class="container mx-auto">
+            <h2 id="blog-title" class="text-3xl font-bold text-center mb-16"></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="blog-posts">
+                <!-- Blog posts will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto">
+            <h2 id="contact-title" class="text-3xl font-bold text-center mb-16"></h2>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <!-- Contact Form -->
+                <div class="md:w-1/2">
+                    <form id="contact-form" class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <input type="text" id="contact-name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white" required>
+                        </div>
+                        <div class="mb-6">
+                            <input type="email" id="contact-email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white" required>
+                        </div>
+                        <div class="mb-6">
+                            <input type="tel" id="contact-phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white">
+                        </div>
+                        <div class="mb-6">
+                            <textarea id="contact-message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white" required></textarea>
+                        </div>
+                        <button type="submit" id="contact-submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300"></button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="md:w-1/2 rtl-adjust">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md h-full">
+                        <h3 id="contact-info-title" class="text-2xl font-semibold mb-6 text-primary-600 dark:text-primary-400"></h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-primary-600 dark:text-primary-400 mt-1 mr-4 flip-icon"></i>
+                                <p id="contact-address" class="text-gray-700 dark:text-gray-300"></p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-primary-600 dark:text-primary-400 mr-4 flip-icon"></i>
+                                <p id="contact-phone-info" class="text-gray-700 dark:text-gray-300"></p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-primary-600 dark:text-primary-400 mr-4 flip-icon"></i>
+                                <p id="contact-email-info" class="text-gray-700 dark:text-gray-300"></p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-primary-600 dark:text-primary-400 mr-4 flip-icon"></i>
+                                <p id="contact-hours" class="text-gray-700 dark:text-gray-300"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4 rtl-adjust">
+                                <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                        <i class="fas fa-globe-africa mr-2 text-primary-400"></i>
+                        <span>The Arab Platform</span>
+                    </h3>
+                    <p class="mb-4">Providing professional training, IT consulting, and HR solutions to organizations across the Arab world.</p>
+                    <div class="flex space-x-4 rtl-adjust">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 id="footer-quick-links" class="text-lg font-semibold text-white mb-4"></h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#blog" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 id="footer-services" class="text-lg font-semibold text-white mb-4"></h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Training Programs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">IT Consulting</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">HR Management</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p id="footer-copyright" class="text-gray-400"></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Update mobile navigation text
+        function updateMobileNav() {
+            const langData = content[currentLanguage];
+            document.getElementById('mobile-nav-home').textContent = langData.nav.home;
+            document.getElementById('mobile-nav-about').textContent = langData.nav.about;
+            document.getElementById('mobile-nav-services').textContent = langData.nav.services;
+            document.getElementById('mobile-nav-blog').textContent = langData.nav.blog;
+            document.getElementById('mobile-nav-contact').textContent = langData.nav.contact;
+        }
+
+        // Mobile language switcher
+        document.getElementById('mobile-lang-en').addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('en');
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+        
+        document.getElementById('mobile-lang-ar').addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('ar');
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+
+        // Update mobile nav when language changes
+        function updateContent() {
+            const langData = content[currentLanguage];
+            
+            // Navigation
+            document.getElementById('nav-home').textContent = langData.nav.home;
+            document.getElementById('nav-about').textContent = langData.nav.about;
+            document.getElementById('nav-services').textContent = langData.nav.services;
+            document.getElementById('nav-bog').textContent = langData.nav.blog;
+            document.getElementById('nav-contact').textContent = langData.nav.contact;
+            
+            // Update mobile nav
+            updateMobileNav();
+            
+            // ... (rest of the updateContent function)
+        }
+        
+        // Initialize active nav highlighting
+        updateActiveNav();
+    </script>
+</body>
+</html>
