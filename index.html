@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المنصة العربية | Almnsa Alarabiya</title>
+    <base target="_self" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          fontFamily: {
+            sans: ["Tajawal", "Helvetica", "Arial", "sans-serif"],
+            en: ["Poppins", "sans-serif"],
+          },
+        },
+      };
+    </script>
+    <style>
+      [lang="en"] {
+        direction: ltr;
+        font-family: "Poppins", sans-serif;
+      }
+      .rtl {
+        direction: rtl;
+      }
+      .ltr {
+        direction: ltr;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+      .lang-switch:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Language Switch -->
+    <div class="fixed top-4 right-4 z-50">
+      <button
+        id="langSwitch"
+        class="lang-switch bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2 transition-all"
+      >
+        <span id="currentLang">English</span>
+        <i class="fas fa-language"></i>
+      </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="bg-white dark:bg-gray-800 shadow-md py-4 px-6 sticky top-0 z-40"
+    >
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="flex items-center">
+          <img
+            src="https://via.placeholder.com/50"
+            alt="Logo"
+            class="h-10 mr-3"
+          />
+          <span class="text-xl font-bold text-blue-600 dark:text-blue-400"
+            >المنصة العربية</span
+          >
+        </a>
+        <div class="hidden md:flex space-x-6 rtl:space-x-reverse">
+          <a
+            href="#home"
+            class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            >الرئيسية</a
+          >
+          <a
+            href="#about"
+            class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            >من نحن</a
+          >
+          <a
+            href="#services"
+            class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            >خدماتنا</a
+          >
+          <a
+            href="#training"
+            class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            >التدريب</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            >تواصل معنا</a
+          >
+        </div>
+        <button
+          id="mobileMenuBtn"
+          class="md:hidden text-gray-700 dark:text-gray-300"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white dark:bg-gray-800 py-4 px-6 absolute left-0 right-0 shadow-lg"
+      >
+        <a
+          href="#home"
+          class="block py-2 nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+          >الرئيسية</a
+        >
+        <a
+          href="#about"
+          class="block py-2 nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+          >من نحن</a
+        >
+        <a
+          href="#services"
+          class="block py-2 nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+          >خدماتنا</a
+        >
+        <a
+          href="#training"
+          class="block py-2 nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+          >التدريب</a
+        >
+        <a
+          href="#contact"
+          class="block py-2 nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+          >تواصل معنا</a
+        >
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="py-20 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-900 dark:to-blue-700 text-white"
+    >
+      <div
+        class="container mx-auto px-6 flex flex-col md:flex-row items-center"
+      >
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            المنصة العربية للتدريب والاستشارات
+          </h1>
+          <p class="text-xl mb-8 opacity-90">
+            نقدم حلولاً متكاملة في التدريب، الاستشارات التقنية والتنظيمية،
+            وإدارة الموارد البشرية لتحقيق التميز المؤسسي
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#contact"
+              class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold shadow-lg transition-all"
+              >تواصل معنا</a
+            >
+            <a
+              href="#training"
+              class="border-2 border-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-semibold transition-all"
+              >برامج التدريب</a
+            >
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="Team Meeting"
+            class="rounded-lg shadow-2xl w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4"
+          >
+            من نحن
+          </h2>
+          <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/2">
+            <img
+              src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+              alt="About Us"
+              class="rounded-lg shadow-lg w-full h-auto"
+            />
+          </div>
+          <div class="md:w-1/2">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+              المنصة العربية - خبرة تمتد لأكثر من 10 سنوات
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+              تأسست المنصة العربية عام 2013 بهدف تقديم حلول متكاملة في مجالات
+              التدريب والاستشارات وإدارة الموارد البشرية. نحن نؤمن بأن نجاح
+              المؤسسات يبدأ من تطوير العنصر البشري وبناء أنظمة عمل فعالة.
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+              خلال السنوات الماضية، ساعدنا أكثر من 500 شركة في مختلف القطاعات
+              على تحقيق أهدافها من خلال برامجنا المخصصة التي تلبي احتياجات كل
+              عميل على حدة.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-3">
+                  <i class="fas fa-users text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800 dark:text-white">
+                    +500 عميل
+                  </h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-300">
+                    عملاء راضون
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-3">
+                  <i
+                    class="fas fa-graduation-cap text-blue-600 dark:text-blue-400"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800 dark:text-white">
+                    +10,000 متدرب
+                  </h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-300">
+                    خريجون من برامجنا
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4"
+          >
+            خدماتنا
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            نقدم مجموعة متكاملة من الخدمات المصممة لتعزيز أداء مؤسستك
+          </p>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Service 1 -->
+          <div
+            class="service-card bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="bg-blue-100 dark:bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mb-6"
+            >
+              <i
+                class="fas fa-laptop-code text-blue-600 dark:text-blue-400 text-2xl"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
+              الاستشارات التقنية
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              حلول تقنية متكاملة تشمل تحليل النظم، أمن المعلومات، تطوير
+              البرمجيات، ورقمنة العمليات لتحسين الكفاءة التشغيلية.
+            </p>
+            <a
+              href="#"
+              class="text-blue-600 dark:text-blue-400 font-semibold flex items-center"
+            >
+              المزيد
+              <i class="fas fa-arrow-left mr-2 rtl:hidden"></i>
+              <i class="fas fa-arrow-right ml-2 ltr:hidden"></i>
+            </a>
+          </div>
+          <!-- Service 2 -->
+          <div
+            class="service-card bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="bg-blue-100 dark:bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mb-6"
+            >
+              <i
+                class="fas fa-chalkboard-teacher text-blue-600 dark:text-blue-400 text-2xl"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
+              برامج التدريب
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              دورات تدريبية متخصصة في مختلف المجالات التقنية والإدارية، مصممة
+              وفق أحدث المعايير العالمية وملبية لاحتياجات السوق.
+            </p>
+            <a
+              href="#"
+              class="text-blue-600 dark:text-blue-400 font-semibold flex items-center"
+            >
+              المزيد
+              <i class="fas fa-arrow-left mr-2 rtl:hidden"></i>
+              <i class="fas fa-arrow-right ml-2 ltr:hidden"></i>
+            </a>
+          </div>
+          <!-- Service 3 -->
+          <div
+            class="service-card bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="bg-blue-100 dark:bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mb-6"
+            >
+              <i
+                class="fas fa-user-tie text-blue-600 dark:text-blue-400 text-2xl"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
+              إدارة الموارد البشرية
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              استشارات متخصصة في بناء سياسات الموارد البشرية، التوظيف، التطوير
+              الوظيفي، وتقييم الأداء لتحقيق أقصى استفادة من الكوادر البشرية.
+            </p>
+            <a
+              href="#"
+              class="text-blue-600 dark:text-blue-400 font-semibold flex items-center"
+            >
+              المزيد
+              <i class="fas fa-arrow-left mr-2 rtl:hidden"></i>
+              <i class="fas fa-arrow-right ml-2 ltr:hidden"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Programs -->
+    <section id="training" class="py-20 bg-white dark:bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4"
+          >
+            برامج التدريب
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            اكتشف أحدث برامجنا التدريبية المصممة لتطوير مهاراتك
+          </p>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Training 1 -->
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-600"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="IT Training"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex justify-between items-center mb-4">
+                <span
+                  class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 text-xs font-semibold px-3 py-1 rounded-full"
+                  >تقنية المعلومات</span
+                >
+                <span class="text-gray-500 dark:text-gray-400 text-sm"
+                  >4 أسابيع</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                أمن المعلومات والجرائم الإلكترونية
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                دورة متخصصة تغطي أساسيات أمن المعلومات، حماية الشبكات، والوقاية
+                من الجرائم الإلكترونية.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-blue-600 dark:text-blue-400 font-bold"
+                  >$299</span
+                >
+                <a
+                  href="#"
+                  class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                  >سجل الآن</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Training 2 -->
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-600"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
+              alt="HR Training"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex justify-between items-center mb-4">
+                <span
+                  class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 text-xs font-semibold px-3 py-1 rounded-full"
+                  >إدارة الموارد البشرية</span
+                >
+                <span class="text-gray-500 dark:text-gray-400 text-sm"
+                  >6 أسابيع</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                إدارة الموارد البشرية الاستراتيجية
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                برنامج متكامل يغطي جميع جوانب إدارة الموارد البشرية الحديثة من
+                التوظيف إلى تقييم الأداء.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-blue-600 dark:text-blue-400 font-bold"
+                  >$399</span
+                >
+                <a
+                  href="#"
+                  class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                  >سجل الآن</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Training 3 -->
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-600"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+              alt="Leadership Training"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex justify-between items-center mb-4">
+                <span
+                  class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 text-xs font-semibold px-3 py-1 rounded-full"
+                  >التنمية الإدارية</span
+                >
+                <span class="text-gray-500 dark:text-gray-400 text-sm"
+                  >8 أسابيع</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                القيادة الإدارية في العصر الرقمي
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                تطوير مهارات القيادة والتخطيط الاستراتيجي في بيئة العمل الحديثة
+                التي تتسم بالتغير السريع.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-blue-600 dark:text-blue-400 font-bold"
+                  >$499</span
+                >
+                <a
+                  href="#"
+                  class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                  >سجل الآن</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition-all"
+          >
+            عرض جميع البرامج
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4"
+          >
+            آراء عملائنا
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            ما يقوله عملاؤنا عن خدماتنا
+          </p>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <div class="flex items-center mb-6">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="Client"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold text-gray-800 dark:text-white">
+                  أحمد السيد
+                </h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                  مدير تقنية المعلومات - شركة التقنية المتكاملة
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 italic">
+              "برامج التدريب المقدمة من المنصة العربية ساعدت فريقنا على تطوير
+              مهاراتهم التقنية بشكل ملحوظ. ننصح بشدة بهذه البرامج لأي شركة تسعى
+              لتحسين أداء موظفيها."
+            </p>
+            <div class="flex mt-4 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <div class="flex items-center mb-6">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                alt="Client"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold text-gray-800 dark:text-white">
+                  سارة محمد
+                </h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                  مديرة الموارد البشرية - مجموعة الأعمال المتحدة
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 italic">
+              "الاستشارات التي قدمتها المنصة العربية ساعدتنا في إعادة هيكلة قسم
+              الموارد البشرية بشكل كامل. الفريق محترف جداً ويقدم حلولاً عملية
+              قابلة للتطبيق."
+            </p>
+            <div class="flex mt-4 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <div class="flex items-center mb-6">
+              <img
+                src="https://randomuser.me/api/portraits/men/75.jpg"
+                alt="Client"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold text-gray-800 dark:text-white">
+                  خالد عبدالله
+                </h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                  الرئيس التنفيذي - شركة التقنية الحديثة
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 italic">
+              "شاركنا في عدة برامج تدريبية مع المنصة العربية وكانت النتائج
+              ممتازة. نخطط لتعاون مستمر في مجال تطوير الكوادر البشرية وتقديم
+              المزيد من الاستشارات التنظيمية."
+            </p>
+            <div class="flex mt-4 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4"
+          >
+            تواصل معنا
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            نحن هنا للإجابة على جميع استفساراتك
+          </p>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+        </div>
+        <div class="flex flex-col md:flex-row gap-10">
+          <div class="md:w-1/2">
+            <form id="contactForm" class="space-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    for="name"
+                    class="block text-gray-700 dark:text-gray-300 mb-2"
+                    >الاسم الكامل</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-gray-700 dark:text-gray-300 mb-2"
+                    >البريد الإلكتروني</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="subject"
+                  class="block text-gray-700 dark:text-gray-300 mb-2"
+                  >الموضوع</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                />
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-gray-700 dark:text-gray-300 mb-2"
+                  >الرسالة</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-all"
+              >
+                إرسال الرسالة
+              </button>
+            </form>
+          </div>
+          <div class="md:w-1/2">
+            <div
+              class="bg-gray-50 dark:bg-gray-700 p-8 rounded-lg shadow-lg h-full"
+            >
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-6">
+                معلومات التواصل
+              </h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4"
+                  >
+                    <i
+                      class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800 dark:text-white mb-1">
+                      العنوان
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                      الرياض، المملكة العربية السعودية
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4"
+                  >
+                    <i
+                      class="fas fa-phone-alt text-blue-600 dark:text-blue-400"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800 dark:text-white mb-1">
+                      الهاتف
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                      +966 12 345 6789
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4"
+                  >
+                    <i
+                      class="fas fa-envelope text-blue-600 dark:text-blue-400"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800 dark:text-white mb-1">
+                      البريد الإلكتروني
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                      info@almnsa-arabiya.com
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4"
+                  >
+                    <i
+                      class="fas fa-clock text-blue-600 dark:text-blue-400"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800 dark:text-white mb-1">
+                      ساعات العمل
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                      الأحد - الخميس: 8 صباحاً - 5 مساءً
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <h4 class="font-bold text-gray-800 dark:text-white mb-4">
+                  تابعنا على
+                </h4>
+                <div class="flex space-x-4 rtl:space-x-reverse">
+                  <a
+                    href="#"
+                    class="bg-gray-200 dark:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-all"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="bg-gray-200 dark:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-all"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="bg-gray-200 dark:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-all"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="bg-gray-200 dark:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-all"
+                  >
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <a href="#" class="flex items-center mb-6">
+              <img
+                src="https://via.placeholder.com/50"
+                alt="Logo"
+                class="h-10 mr-3"
+              />
+              <span class="text-xl font-bold text-blue-400"
+                >المنصة العربية</span
+              >
+            </a>
+            <p class="text-gray-400 mb-6">
+              نقدم حلولاً متكاملة في التدريب، الاستشارات التقنية والتنظيمية،
+              وإدارة الموارد البشرية لتحقيق التميز المؤسسي.
+            </p>
+            <div class="flex space-x-4 rtl:space-x-reverse">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-6">روابط سريعة</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#home"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >الرئيسية</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >من نحن</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >خدماتنا</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#training"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >برامج التدريب</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >تواصل معنا</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-6">خدماتنا</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >الاستشارات التقنية</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >برامج التدريب</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >إدارة الموارد البشرية</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >الاستشارات التنظيمية</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >التطوير المؤسسي</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-6">النشرة البريدية</h3>
+            <p class="text-gray-400 mb-4">
+              اشترك في نشرتنا البريدية لتصلك آخر أخبارنا وعروضنا.
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="بريدك الإلكتروني"
+                class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800"
+              />
+              <button
+                type="submit"
+                class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-4 md:mb-0">
+            &copy; 2023 المنصة العربية. جميع الحقوق محفوظة.
+          </p>
+          <div class="flex space-x-6 rtl:space-x-reverse">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"
+              >سياسة الخصوصية</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"
+              >شروط الاستخدام</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"
+              >الأسئلة الشائعة</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Language switching functionality
+      const langSwitch = document.getElementById("langSwitch");
+      const currentLang = document.getElementById("currentLang");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const htmlElement = document.documentElement;
+
+      let isArabic = true;
+
+      // English content
+      const englishContent = {
+        home: "Home",
+        about: "About Us",
+        services: "Our Services",
+        training: "Training",
+        contact: "Contact Us",
+        heroTitle: "Almnsa Alarabiya for Training & Consulting",
+        heroSubtitle:
+          "We provide integrated solutions in training, technical and organizational consulting, and human resources management to achieve institutional excellence",
+        contactBtn: "Contact Us",
+        trainingBtn: "Training Programs",
+        aboutTitle: "About Us",
+        aboutSubtitle: "Almnsa Alarabiya - Over 10 years of experience",
+        aboutText1:
+          "Almnsa Alarabiya was established in 2013 with the aim of providing integrated solutions in the fields of training, consulting and human resources management. We believe that the success of institutions starts with developing the human element and building effective work systems.",
+        aboutText2:
+          "Over the past years, we have helped more than 500 companies in various sectors to achieve their goals through our customized programs that meet the needs of each client individually.",
+        clients: "+500 Clients",
+        clientsSub: "Satisfied customers",
+        trainees: "+10,000 Trainees",
+        traineesSub: "Graduates from our programs",
+        servicesTitle: "Our Services",
+        servicesSubtitle:
+          "We offer a comprehensive set of services designed to enhance your organization's performance",
+        service1Title: "Technical Consulting",
+        service1Desc:
+          "Integrated technical solutions including systems analysis, information security, software development, and process digitization to improve operational efficiency.",
+        service2Title: "Training Programs",
+        service2Desc:
+          "Specialized training courses in various technical and administrative fields, designed according to the latest international standards and meeting market needs.",
+        service3Title: "Human Resources Management",
+        service3Desc:
+          "Specialized consultations in building HR policies, recruitment, career development, and performance evaluation to maximize the benefit of human resources.",
+        more: "More",
+        trainingTitle: "Training Programs",
+        trainingSubtitle:
+          "Discover our latest training programs designed to develop your skills",
+        training1Title: "Information Security & Cyber Crimes",
+        training1Desc:
+          "A specialized course covering the basics of information security, network protection, and prevention of cyber crimes.",
+        training2Title: "Strategic Human Resources Management",
+        training2Desc:
+          "An integrated program covering all aspects of modern human resources management from recruitment to performance evaluation.",
+        training3Title: "Administrative Leadership in the Digital Age",
+        training3Desc:
+          "Developing leadership skills and strategic planning in the modern work environment characterized by rapid change.",
+        register: "Register Now",
+        viewAll: "View All Programs",
+        testimonialsTitle: "Client Testimonials",
+        testimonialsSubtitle: "What our clients say about our services",
+        contactTitle: "Contact Us",
+        contactSubtitle: "We're here to answer all your inquiries",
+        name: "Full Name",
+        email: "Email Address",
+        subject: "Subject",
+        message: "Message",
+        send: "Send Message",
+        address: "Address",
+        phone: "Phone",
+        workHours: "Working Hours",
+        followUs: "Follow Us",
+        quickLinks: "Quick Links",
+        newsletter: "Newsletter",
+        newsletterText:
+          "Subscribe to our newsletter to receive our latest news and offers.",
+        copyright: "© 2023 Almnsa Alarabiya. All rights reserved.",
+        privacy: "Privacy Policy",
+        terms: "Terms of Use",
+        faq: "FAQ",
+      };
+
+      // Arabic content
+      const arabicContent = {
+        home: "الرئيسية",
+        about: "من نحن",
+        services: "خدماتنا",
+        training: "التدريب",
+        contact: "تواصل معنا",
+        heroTitle: "المنصة العربية للتدريب والاستشارات",
+        heroSubtitle:
+          "نقدم حلولاً متكاملة في التدريب، الاستشارات التقنية والتنظيمية، وإدارة الموارد البشرية لتحقيق التميز المؤسسي",
+        contactBtn: "تواصل معنا",
+        trainingBtn: "برامج التدريب",
+        aboutTitle: "من نحن",
+        aboutSubtitle: "المنصة العربية - خبرة تمتد لأكثر من 10 سنوات",
+        aboutText1:
+          "تأسست المنصة العربية عام 2013 بهدف تقديم حلول متكاملة في مجالات التدريب والاستشارات وإدارة الموارد البشرية. نحن نؤمن بأن نجاح المؤسسات يبدأ من تطوير العنصر البشري وبناء أنظمة عمل فعالة.",
+        aboutText2:
+          "خلال السنوات الماضية، ساعدنا أكثر من 500 شركة في مختلف القطاعات على تحقيق أهدافها من خلال برامجنا المخصصة التي تلبي احتياجات كل عميل على حدة.",
+        clients: "+500 عميل",
+        clientsSub: "عملاء راضون",
+        trainees: "+10,000 متدرب",
+        traineesSub: "خريجون من برامجنا",
+        servicesTitle: "خدماتنا",
+        servicesSubtitle:
+          "نقدم مجموعة متكاملة من الخدمات المصممة لتعزيز أداء مؤسستك",
+        service1Title: "الاستشارات التقنية",
+        service1Desc:
+          "حلول تقنية متكاملة تشمل تحليل النظم، أمن المعلومات، تطوير البرمجيات، ورقمنة العمليات لتحسين الكفاءة التشغيلية.",
+        service2Title: "برامج التدريب",
+        service2Desc:
+          "دورات تدريبية متخصصة في مختلف المجالات التقنية والإدارية، مصممة وفق أحدث المعايير العالمية وملبية لاحتياجات السوق.",
+        service3Title: "إدارة الموارد البشرية",
+        service3Desc:
+          "استشارات متخصصة في بناء سياسات الموارد البشرية، التوظيف، التطوير الوظيفي، وتقييم الأداء لتحقيق أقصى استفادة من الكوادر البشرية.",
+        more: "المزيد",
+        trainingTitle: "برامج التدريب",
+        trainingSubtitle: "اكتشف أحدث برامجنا التدريبية المصممة لتطوير مهاراتك",
+        training1Title: "أمن المعلومات والجرائم الإلكترونية",
+        training1Desc:
+          "دورة متخصصة تغطي أساسيات أمن المعلومات، حماية الشبكات، والوقاية من الجرائم الإلكترونية.",
+        training2Title: "إدارة الموارد البشرية الاستراتيجية",
+        training2Desc:
+          "برنامج متكامل يغطي جميع جوانب إدارة الموارد البشرية الحديثة من التوظيف إلى تقييم الأداء.",
+        training3Title: "القيادة الإدارية في العصر الرقمي",
+        training3Desc:
+          "تطوير مهارات القيادة والتخطيط الاستراتيجي في بيئة العمل الحديثة التي تتسم بالتغير السريع.",
+        register: "سجل الآن",
+        viewAll: "عرض جميع البرامج",
+        testimonialsTitle: "آراء عملائنا",
+        testimonialsSubtitle: "ما يقوله عملاؤنا عن خدماتنا",
+        contactTitle: "تواصل معنا",
+        contactSubtitle: "نحن هنا للإجابة على جميع استفساراتك",
+        name: "الاسم الكامل",
+        email: "البريد الإلكتروني",
+        subject: "الموضوع",
+        message: "الرسالة",
+        send: "إرسال الرسالة",
+        address: "العنوان",
+        phone: "الهاتف",
+        workHours: "ساعات العمل",
+        followUs: "تابعنا على",
+        quickLinks: "روابط سريعة",
+        newsletter: "النشرة البريدية",
+        newsletterText: "اشترك في نشرتنا البريدية لتصلك آخر أخبارنا وعروضنا.",
+        copyright: "© 2023 المنصة العربية. جميع الحقوق محفوظة.",
+        privacy: "سياسة الخصوصية",
+        terms: "شروط الاستخدام",
+        faq: "الأسئلة الشائعة",
+      };
+
+      // Switch language function
+      function switchLanguage() {
+        isArabic = !isArabic;
+
+        if (isArabic) {
+          currentLang.textContent = "English";
+          htmlElement.lang = "ar";
+          htmlElement.dir = "rtl";
+          document.body.classList.add("rtl");
+          document.body.classList.remove("ltr");
+          updateContent(arabicContent);
+        } else {
+          currentLang.textContent = "العربية";
+          htmlElement.lang = "en";
+          htmlElement.dir = "ltr";
+          document.body.classList.add("ltr");
+          document.body.classList.remove("rtl");
+          updateContent(englishContent);
+        }
+      }
+
+      // Update content based on language
+      function updateContent(content) {
+        // Navigation
+        navLinks[0].textContent = content.home;
+        navLinks[1].textContent = content.about;
+        navLinks[2].textContent = content.services;
+        navLinks[3].textContent = content.training;
+        navLinks[4].textContent = content.contact;
+
+        // Hero section
+        document.querySelector("#home h1").textContent = content.heroTitle;
+        document.querySelector("#home p").textContent = content.heroSubtitle;
+        document.querySelector("#home a:first-of-type").textContent =
+          content.contactBtn;
+        document.querySelector("#home a:last-of-type").textContent =
+          content.trainingBtn;
+
+        // About section
+        document.querySelector("#about h2").textContent = content.aboutTitle;
+        document.querySelector("#about h3").textContent = content.aboutSubtitle;
+        document.querySelector("#about p:first-of-type").textContent =
+          content.aboutText1;
+        document.querySelector("#about p:nth-of-type(2)").textContent =
+          content.aboutText2;
+        document.querySelector("#about h4:first-of-type").textContent =
+          content.clients;
+        document.querySelector("#about p:nth-of-type(3)").textContent =
+          content.clientsSub;
+        document.querySelector("#about h4:last-of-type").textContent =
+          content.trainees;
+        document.querySelector("#about p:last-of-type").textContent =
+          content.traineesSub;
+
+        // Services section
+        document.querySelector("#services h2").textContent =
+          content.servicesTitle;
+        document.querySelector("#services p").textContent =
+          content.servicesSubtitle;
+        document.querySelectorAll(".service-card h3")[0].textContent =
+          content.service1Title;
+        document.querySelectorAll(".service-card p")[0].textContent =
+          content.service1Desc;
+        document.querySelectorAll(".service-card h3")[1].textContent =
+          content.service2Title;
+        document.querySelectorAll(".service-card p")[1].textContent =
+          content.service2Desc;
+        document.querySelectorAll(".service-card h3")[2].textContent =
+          content.service3Title;
+        document.querySelectorAll(".service-card p")[2].textContent =
+          content.service3Desc;
+        document.querySelectorAll(".service-card a").forEach((link) => {
+          link.textContent = content.more;
+        });
+
+        // Training section
+        document.querySelector("#training h2").textContent =
+          content.trainingTitle;
+        document.querySelector("#training p").textContent =
+          content.trainingSubtitle;
+        document.querySelectorAll("#training .rounded-lg h3")[0].textContent =
+          content.training1Title;
+        document.querySelectorAll("#training .rounded-lg p")[0].textContent =
+          content.training1Desc;
+        document.querySelectorAll("#training .rounded-lg h3")[1].textContent =
+          content.training2Title;
+        document.querySelectorAll("#training .rounded-lg p")[1].textContent =
+          content.training2Desc;
+        document.querySelectorAll("#training .rounded-lg h3")[2].textContent =
+          content.training3Title;
+        document.querySelectorAll("#training .rounded-lg p")[2].textContent =
+          content.training3Desc;
+        document.querySelectorAll("#training .rounded-lg a").forEach((link) => {
+          link.textContent = content.register;
+        });
+        document.querySelector("#training .text-center a").textContent =
+          content.viewAll;
+
+        // Testimonials section
+        document.querySelector(".bg-gray-50 h2").textContent =
+          content.testimonialsTitle;
+        document.querySelector(".bg-gray-50 p").textContent =
+          content.testimonialsSubtitle;
+
+        // Contact section
+        document.querySelector("#contact h2").textContent =
+          content.contactTitle;
+        document.querySelector("#contact p").textContent =
+          content.contactSubtitle;
+        document.querySelector('label[for="name"]').textContent = content.name;
+        document.querySelector('label[for="email"]').textContent =
+          content.email;
+        document.querySelector('label[for="subject"]').textContent =
+          content.subject;
+        document.querySelector('label[for="message"]').textContent =
+          content.message;
+        document.querySelector("#contact button").textContent = content.send;
+        document.querySelector(".bg-gray-50 h3").textContent =
+          content.contactTitle;
+        document.querySelector(".bg-gray-50 h4:first-of-type").textContent =
+          content.address;
+        document.querySelector(".bg-gray-50 h4:nth-of-type(2)").textContent =
+          content.phone;
+        document.querySelector(".bg-gray-50 h4:nth-of-type(3)").textContent =
+          content.email;
+        document.querySelector(".bg-gray-50 h4:last-of-type").textContent =
+          content.workHours;
+        document.querySelector(".mt-8 h4").textContent = content.followUs;
+
+        // Footer
+        document.querySelector("footer h3:first-of-type").textContent =
+          content.quickLinks;
+        document.querySelector("footer h3:nth-of-type(2)").textContent =
+          content.services;
+        document.querySelector("footer h3:last-of-type").textContent =
+          content.newsletter;
+        document.querySelector("footer p:last-of-type").textContent =
+          content.newsletterText;
+        document.querySelector(".border-t p").textContent = content.copyright;
+        document.querySelectorAll(".border-t a")[0].textContent =
+          content.privacy;
+        document.querySelectorAll(".border-t a")[1].textContent = content.terms;
+        document.querySelectorAll(".border-t a")[2].textContent = content.faq;
+      }
+
+      // Event listeners
+      langSwitch.addEventListener("click", switchLanguage);
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+          }
+        });
+      });
+
+      // Form submission
+      const contactForm = document.getElementById("contactForm");
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+
+        // Here you would typically send the form data to a server
+        console.log("Form submitted:", { name, email, subject, message });
+
+        // Show success message
+        alert(
+          isArabic
+            ? "تم إرسال رسالتك بنجاح. سنتواصل معك قريباً."
+            : "Your message has been sent successfully. We will contact you soon."
+        );
+
+        // Reset form
+        contactForm.reset();
+      });
+
+      // Dark mode toggle (system preference)
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        document.documentElement.classList.add("dark");
+      }
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (event.matches) {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        });
+    </script>
+  </body>
+</html>
