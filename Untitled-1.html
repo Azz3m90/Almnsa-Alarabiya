@@ -64,29 +64,34 @@
       .back-to-top { position: fixed; bottom: 2rem; right: 2rem; display: none; background: linear-gradient(90deg, #1E8449, #D4AF37); color: white; padding: 0.75rem 1.5rem; rounded-full; shadow-lg; hover-scale; z-index: 50; transition: opacity 0.3s ease, transform 0.3s ease; }
       .back-to-top.visible { display: flex; align-items: center; gap: 0.5rem; opacity: 1; justify-content: center; }
       .back-to-top:hover { background: linear-gradient(90deg, #166d38, #b8972e); }
+      .testimonial-slider { position: relative; overflow: hidden; }
+      .testimonial-slide { display: none; transition: opacity 0.5s ease-in-out; }
+      .testimonial-slide.active { display: flex; }
+      .testimonial-dot { width: 0.75rem; height: 0.75rem; background: rgba(30, 132, 73, 0.5); border-radius: 50%; cursor: pointer; transition: background 0.3s; }
+      .testimonial-dot:hover, .testimonial-dot.active { background: #1E8449; }
       @media (max-width: 768px) {
         .service-card { min-height: auto; }
         .slider-arrow { padding: 0.5rem; }
         .slider-dots { bottom: 0.5rem; }
         .back-to-top { padding: 0.5rem 1rem; bottom: 1rem; right: 1rem; }
         .back-to-top span { display: none; }
+        .testimonial-slide.active { flex-direction: column; gap: 1rem; }
       }
     </style>
     <script>
       function toggleLanguage() {
         const html = document.documentElement;
         const isArabic = html.getAttribute("lang") === "ar";
-        const newLang = isArabic ? "en" : "ar";
-        const newDir = isArabic ? "ltr" : "rtl";
-
-        // Update lang and dir attributes
-        html.setAttribute("lang", newLang);
-        html.setAttribute("dir", newDir);
-
-        // Update body font class
+        html.setAttribute("lang", isArabic ? "en" : "ar");
+        html.setAttribute("dir", isArabic ? "ltr" : "rtl");
         document.body.className = isArabic ? "font-inter" : "font-cairo";
 
-        // Update aria-label for Back to Top button
+        document.querySelectorAll("[data-en]").forEach((el) => {
+          el.textContent = isArabic
+            ? el.getAttribute("data-en")
+            : el.getAttribute("data-ar");
+        });
+
         const backToTop = document.querySelector(".back-to-top");
         backToTop.setAttribute(
           "aria-label",
@@ -95,60 +100,15 @@
             : backToTop.getAttribute("data-ar-aria-label")
         );
 
-        // Update page title
         document.title = isArabic
           ? "The Arab Platform - Training, IT Consulting, HR Management"
           : "المنصة العربية - التدريب، الاستشارات التقنية، إدارة الموارد البشرية";
 
-        // Update meta description
         document.querySelector('meta[name="description"]').content = isArabic
           ? "The Arab Platform offers professional training, IT consulting, and HR management services for businesses in the Arab region and beyond."
           : "تقدم المنصة العربية خدمات احترافية في التدريب، الاستشارات التقنية، وإدارة الموارد البشرية للشركات في المنطقة العربية وخارجها.";
-
-        // Update all elements with data-en and data-ar attributes
-        document.querySelectorAll("[data-en][data-ar]").forEach((element) => {
-          // Update text content for elements like <h1>, <p>, <a>, <button>, <strong>, etc.
-          if (
-            element.tagName === "H1" ||
-            element.tagName === "H2" ||
-            element.tagName === "H3" ||
-            element.tagName === "H4" ||
-            element.tagName === "P" ||
-            element.tagName === "A" ||
-            element.tagName === "BUTTON" ||
-            element.tagName === "LI" ||
-            element.tagName === "SPAN" ||
-            element.tagName === "STRONG" ||
-            element.tagName === "LABEL"
-          ) {
-            element.textContent = isArabic
-              ? element.getAttribute("data-en")
-              : element.getAttribute("data-ar");
-          }
-
-          // Update placeholder for input/textarea (if applicable)
-          if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
-            element.placeholder = isArabic
-              ? element.getAttribute("data-en")
-              : element.getAttribute("data-ar");
-          }
-
-          // Update option text for select elements
-          if (element.tagName === "OPTION") {
-            element.textContent = isArabic
-              ? element.getAttribute("data-en")
-              : element.getAttribute("data-ar");
-          }
-        });
-
-        // Update Back to Top button span specifically
-        const backToTopSpan = backToTop.querySelector("span");
-        if (backToTopSpan) {
-          backToTopSpan.textContent = isArabic
-            ? backToTopSpan.getAttribute("data-en")
-            : backToTopSpan.getAttribute("data-ar");
-        }
       }
+
       // Hero Slider
       let currentSlide = 0;
       function showSlide(index) {
@@ -167,6 +127,28 @@
       function prevSlide() {
         const slides = document.querySelectorAll(".slide");
         showSlide((currentSlide - 1 + slides.length) % slides.length);
+      }
+
+      // Testimonial Slider
+      let currentTestimonialSlide = 0;
+      function showTestimonialSlide(index) {
+        const slides = document.querySelectorAll(".testimonial-slide");
+        const dots = document.querySelectorAll(".testimonial-dot");
+        slides.forEach((s) => s.classList.remove("active"));
+        dots.forEach((d) => d.classList.remove("active"));
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+        currentTestimonialSlide = index;
+      }
+      function nextTestimonialSlide() {
+        const slides = document.querySelectorAll(".testimonial-slide");
+        showTestimonialSlide((currentTestimonialSlide + 1) % slides.length);
+      }
+      function prevTestimonialSlide() {
+        const slides = document.querySelectorAll(".testimonial-slide");
+        showTestimonialSlide(
+          (currentTestimonialSlide - 1 + slides.length) % slides.length
+        );
       }
 
       // Fade-In Animation on Scroll
@@ -224,6 +206,8 @@
       window.addEventListener("load", () => {
         showSlide(0);
         setInterval(nextSlide, 5000);
+        showTestimonialSlide(0);
+        setInterval(nextTestimonialSlide, 7000);
         handleScroll();
         updateActiveLink();
         handleBackToTop();
@@ -244,13 +228,8 @@
           href="#"
           class="text-2xl font-bold text-green-800"
           aria-label="المنصة العربية - الصفحة الرئيسية"
-          ><img
-            src="images/logo-black.png"
-            alt="The Arab Platform Logo"
-            width="50"
-            height="50"
-          />
-        </a>
+          >المنصة العربية</a
+        >
         <div class="hidden md:flex space-x-6 space-x-reverse">
           <a
             href="#about"
@@ -265,6 +244,13 @@
             data-en="Services"
             data-ar="الخدمات"
             >الخدمات</a
+          >
+          <a
+            href="#testimonials"
+            class="text-gray-700 hover:text-green-600 px-3 py-2 transition-colors rounded focus:outline focus:outline-green-600"
+            data-en="Testimonials"
+            data-ar="آراء العملاء"
+            >آراء العملاء</a
           >
           <a
             href="#blog"
@@ -325,6 +311,13 @@
           data-en="Services"
           data-ar="الخدمات"
           >الخدمات</a
+        >
+        <a
+          href="#testimonials"
+          class="block px-4 py-3 text-gray-700 hover:bg-green-100 focus:outline focus:outline-green-600"
+          data-en="Testimonials"
+          data-ar="آراء العملاء"
+          >آراء العملاء</a
         >
         <a
           href="#blog"
@@ -428,7 +421,7 @@
       <div
         class="slide absolute inset-0 bg-cover bg-center"
         style="
-          background-image: url('https://images.unsplash.com/photo-1573165265437-f5e267bb3db6?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+          background-image: url('https://images.unsplash.com/photo-1573166774087-1c1c3e6ab2076?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
         "
       >
         <div
@@ -574,7 +567,7 @@
           <div class="md:w-1/2">
             <img
               src="https://plus.unsplash.com/premium_photo-1661923465953-937e49c9e624?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="فريق يعمل معًا في مكتب حديث"
+              alt="فريق يعمل معًا في مكان حديث"
               class="w-full rounded-lg shadow-lg hover-scale object-cover h-64 md:h-80"
               loading="lazy"
             />
@@ -645,9 +638,11 @@
               >
                 برامج رقمية معتمدة
               </li>
+
               <li data-en="Corporate workshops" data-ar="ورش عمل للشركات">
                 ورش للشركات
               </li>
+
               <li
                 data-en="On-site and remote training"
                 data-ar="تدريب ميداني وعن بُعد"
@@ -663,14 +658,13 @@
               class="btn-green text-white px-8 py-4 rounded-lg font-bold text-lg hover-scale mt-auto block text-center focus:outline focus:outline-green-600"
               data-en="Request Consultation"
               data-ar="طلب استشارة"
-              >طلب استشارة</a
             >
+              طلب استشارة
+            </a>
           </div>
           <!-- IT & Organizational Consulting -->
           <div
-            class="service-card glass-card p-8 rounded-2xl shadow-xl hover:border-[#D4AF37]/30 border border-transparent transition-all"
-            role="region"
-            aria-label="خدمة الاستشارات"
+            class="service-card glass-card p-8 rounded-2xl shadow-xl hover:shadow-xl hover:border-[#D4AF37]/30 border border-transparent transition-all duration-300"
           >
             <div class="relative w-20 h-20 mx-auto mb-6">
               <svg
@@ -716,7 +710,7 @@
                 data-en="Infrastructure and cloud setup"
                 data-ar="إعداد البنية التحتية والسحابة"
               >
-                إعداد البنية
+                إدعداد البنية
               </li>
               <li
                 data-en="Cybersecurity audits"
@@ -739,14 +733,12 @@
               class="btn-green text-white px-8 py-4 rounded-lg font-bold text-lg hover-scale mt-auto block text-center focus:outline focus:outline-green-600"
               data-en="Request Consultation"
               data-ar="طلب استشارة"
-              >طلب استشارة</a
+              >ططلب استشارة</a
             >
           </div>
           <!-- Human Resource Management -->
           <div
             class="service-card glass-card p-8 rounded-2xl shadow-xl hover:border-[#D4AF37]/30 border border-transparent transition-all"
-            role="region"
-            aria-label="خدمة إدارة الموارد"
           >
             <div class="relative w-20 h-20 mx-auto mb-6">
               <svg
@@ -819,6 +811,228 @@
       </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section
+      id="testimonials"
+      class="py-16 bg-gradient-to-b from-white to-green-50 fade-in"
+      aria-labelledby="testimonials-title"
+    >
+      <div class="container mx-auto px-4">
+        <h2
+          id="testimonials-title"
+          class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center"
+          data-en="What Our Clients Say"
+          data-ar="ماذا يقول عملاؤنا"
+        >
+          ماذا يقول عملاؤنا
+        </h2>
+        <div class="testimonial-slider relative">
+          <div
+            class="testimonial-slide active flex justify-center gap-8 items-center"
+            role="region"
+            aria-label="شهادة العميل"
+          >
+            <div class="glass-card p-6 rounded-lg shadow-lg w-full max-w-md">
+              <p
+                class="text-gray-700 text-lg leading-relaxed mb-4"
+                data-en="The training programs were transformative for our team, boosting productivity significantly."
+                data-ar="كانت برامج التدريب تحويلية لفريقنا، مما عزز الإنتاجية بشكل كبير."
+              >
+                كانت برامج التدريب تحويلية لفريقنا.
+              </p>
+              <div class="flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211168-0d8a1c3a9c2f?q=80&w=100"
+                  alt="عميل"
+                  class="w-12 h-12 rounded-full mr-4 object-cover"
+                  loading="lazy"
+                />
+                <div>
+                  <p
+                    class="font-semibold text-gray-900"
+                    data-en="Ahmed Al-Sayed"
+                    data-ar="أحمد السيد"
+                  >
+                    أحمد السيد
+                  </p>
+                  <p
+                    class="text-gray-500 text-sm"
+                    data-en="CEO, TechWave"
+                    data-ar="الرئيس التنفيذي، TechWave"
+                  >
+                    الرئيس التنفيذي
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="glass-card p-6 rounded-lg shadow-lg w-full max-w-md hidden md:block"
+            >
+              <p
+                class="text-gray-700 text-lg leading-relaxed mb-4"
+                data-en="Their IT consulting services helped us modernize our infrastructure seamlessly."
+                data-ar="ساعدت خدمات الاستشارات التقنية في تحديث بنيتنا التحتية بسلاسة."
+              >
+                ساعدت خدمات الاستشارات التقنية.
+              </p>
+              <div class="flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100"
+                  alt="Customer"
+                  class="w-12 h-12 rounded-full mr-4 object-cover"
+                  loading="lazy"
+                />
+                <div>
+                  <p
+                    class="font-semibold text-gray-900"
+                    data-en="Fatima Al-Zahrani"
+                    data-ar="فاطمة الزهراني"
+                  >
+                    فاطمة الزهراني >
+                  </p>
+                  <p
+                    class="text-gray-500 text-sm"
+                    data-en="CTO, Innovatech"
+                    data-ar="المدير التقني، Innovatech"
+                  >
+                    المدير التقني
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="testimonial-slide flex justify-center gap-8 items-center"
+            role="region"
+            aria-label="شهادة العميل"
+          >
+            <div class="glass-card p-6 rounded-lg shadow-lg w-full max-w-md">
+              <p
+                class="text-gray-700 text-lg leading-relaxed mb-4"
+                data-en="The HR strategies implemented improved our talent retention by 25%."
+                data-ar="حسنت استراتيجيات الموارد البشرية استبقاء المواهب بنسبة 25%."
+              >
+                حسنت استراتيجيات الموارد.
+              </p>
+              <div class="flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=100"
+                  alt="w-12 h-12 rounded-full mr-4 object-cover"
+                  loading="lazy"
+                />
+                <div>
+                  <p
+                    class="font-semibold text-gray-900"
+                    data-en="Khalid Mohammed"
+                    data-ar="خالد محمد"
+                  >
+                    خالد محمد
+                  </p>
+                  >
+                  <p
+                    class="text-gray-500 text-sm"
+                    data-en="HR Director, Gulf Enterprises"
+                    data-ar="مدير الموارد البشرية، Gulf Enterprises"
+                  >
+                    مدير الموارد البشرية
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="glass-card p-6 rounded-lg shadow-lg w-full max-w-md hidden md:block"
+            >
+              <p
+                class="text-gray-700 text-lg leading-relaxed mb-4"
+                data-en="Their customized training solutions were a perfect fit for our needs."
+                data-ar="كانت حلول التدريب المخصصة مناسبة تمامًا لاحتياجاتنا."
+              >
+                كانت حلول التدريب المخصصة.
+              </p>
+              <div class="flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?q=80&w=100"
+                  alt="Customer"
+                  class="w-12 h-12 rounded-full mr-4 object-cover"
+                  loading="lazy"
+                />
+                <div>
+                  <p
+                    class="font-semibold text-gray-900"
+                    data-en="Omar Hassan"
+                    data-ar="عمر حسن"
+                  >
+                    عمر حسن
+                  </p>
+                  <p
+                    class="text-gray-500 text-sm"
+                    data-en="Operations Manager, SkyTech"
+                    data-ar="مدير العمليات، SkyTech"
+                  >
+                    مدير العمليات
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center gap-2 mt-8">
+            <button
+              class="testimonial-dot active"
+              onclick="showTestimonialSlide(0)"
+              role="tab"
+              aria-selected="true"
+              aria-label="الشهادة الأولى"
+            ></button>
+            <button
+              class="testimonial-dot"
+              onclick="showTestimonialSlide(1)"
+              role="tab"
+              aria-selected="false"
+              aria-label="الشهادة الثانية"
+            ></button>
+          </div>
+          <button
+            class="slider-arrow left"
+            onclick="prevTestimonialSlide()"
+            aria-label="الشهادة السابقة"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            class="slider-arrow right"
+            onclick="nextTestimonialSlide()"
+            aria-label="الشهادة التالية"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Blog Section -->
     <section
       id="blog"
@@ -878,7 +1092,7 @@
               itemprop="url"
               >اقرأ المزيد</a
             >
-            <meta itemprop="author" content="المنصة العربية" />
+            <meta-data-en ="author" content="المنصة العربية" />
           </article>
           <article
             class="blog-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
@@ -886,7 +1100,7 @@
             itemtype="https://schema.org/Article"
           >
             <img
-              src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1520607162513-eb0d7dd0f0d4a?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="استراتيجيات الموارد البشرية الفعالة"
               class="w-full h-48 object-cover rounded-md mb-4"
               loading="lazy"
@@ -1172,6 +1386,15 @@
                   data-en="Services"
                   data-ar="الخدمات"
                   >الخدمات</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#testimonials"
+                  class="hover:text-green-400 transition-colors focus:outline focus:outline-green-600"
+                  data-en="Testimonials"
+                  data-ar="آراء العملاء"
+                  >آراء العملاء</a
                 >
               </li>
               <li>
