@@ -70,9 +70,9 @@
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+966123456789",
+          "telephone": "+966562944400",
           "contactType": "Customer Service",
-          "email": "info@thearabplatform.com"
+          "email": "abdulrahman@arabicplatform.com"
         },
         "foundingLocation": "الرياض، المملكة العربية السعودية"
       }
@@ -102,82 +102,263 @@
     />
 
     <style>
-          html, body { scroll-behavior: smooth; }
-          .font-cairo { font-family: 'Cairo', sans-serif; }
-          .font-inter { font-family: 'Inter', sans-serif; }
-          .hover-scale { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-          .hover-scale:hover { transform: scale(1.03); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); }
-          .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-          .fade-in.visible { opacity: 1; transform: translateY(0); }
-          .nav-active { color: #1E8449; border-bottom: 2px solid #1E8449; transition: border-color 0.3s ease; }
-          .section-bg { background: linear-gradient(180deg, #f9f9f9, #ffffff); }
-          .icon-hover { transition: color 0.3s ease, transform 0.3s ease; }
-          .icon-hover:hover { color: #D4AF37; transform: scale(1.1); }
-          .btn-green { background: linear-gradient(90deg, #1E8449, #2ECC71); transition: background 0.3s ease, transform 0.3s ease; }
-          .btn-green:hover { background: linear-gradient(90deg, #166d38, #27ae60); transform: translateY(-3px); }
-          [dir="rtl"] .custom-list li { position: relative; padding-right: 1.75rem; transition: color 0.3s ease; }
-          [dir="rtl"] .custom-list li::before { content: '•'; position: absolute; right: -1.25rem; color: #1E8449; font-size: 1.5rem; }
-          [dir="ltr"] .custom-list li { position: relative; padding-left: 1.75rem; transition: color 0.3s ease; }
-          [dir="ltr"] .custom-list li::before { content: '•'; position: absolute; left: -1.25rem; color: #1E8449; font-size: 1.5rem; }
-          .custom-list li:hover { color: #D4AF37; }
-          .service-card { min-height: 520px; display: flex; flex-direction: column; justify-content: space-between; }
-          .slider { position: relative; overflow: hidden; }
-          .slide { display: none; transition: opacity 0.5s ease-in-out; }
-          .slide.active { display: block; }
-          .slider-dots { display: flex; justify-content: center; gap: 0.75rem; position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); }
-          .slider-dot { width: 1rem; height: 1rem; background: rgba(255, 255, 255, 0.5); border-radius: 50%; cursor: pointer; transition: background 0.3s; }
-          .slider-dot:hover, .slider-dot.active { background: #1E8449; }
-          .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; padding: 0.75rem; cursor: pointer; transition: background 0.3s; }
-          .slider-arrow:hover { background: rgba(0, 0, 0, 0.7); }
-          .slider-arrow.left { left: 1rem; }
-          .slider-arrow.right { right: 1rem; }
-          .input-focus { transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; }
-          .input-focus:focus { border-color: #1E8449; box-shadow: 0 0 0 4px rgba(30, 132, 73, 0.15); background-color: #f9f9f9; outline: 2px solid #1E8449; }
-          .input-focus:invalid:focus { border-color: #e53e3e; box-shadow: 0 0 0 4px rgba(229, 62, 62, 0.15); }
-          .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
-          .back-to-top { position: fixed; bottom: 2rem; right: 2rem; display: none; background: linear-gradient(90deg, #1E8449, #D4AF37); color: white; padding: 0.75rem 1.5rem; rounded-full; shadow-lg; hover-scale; z-index: 50; transition: opacity 0.3s ease, transform 0.3s ease; }
-          .back-to-top.visible { display: flex; align-items: center; gap: 0.5rem; opacity: 1; justify-content: center; }
-          .back-to-top:hover { background: linear-gradient(90deg, #166d38, #b8972e); }
-          @media (max-width: 768px) {
-            .service-card { min-height: auto; }
-            .slider-arrow { padding: 0.5rem; }
-            .slider-dots { bottom: 0.5rem; }
-            .back-to-top { padding: 0.5rem 1rem; bottom: 1rem; right: 1rem; }
-            .back-to-top span { display: none; }
-          }
-            #page-loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #111;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-      }
-
-      .spinner {
-        width: 50px;
-        height: 50px;
-        border: 5px solid #444;
-        border-top-color: #fff;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
+            html, body { scroll-behavior: smooth; }
+            .font-cairo { font-family: 'Cairo', sans-serif; }
+            .font-inter { font-family: 'Inter', sans-serif; }
+            .hover-scale { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+            .hover-scale:hover { transform: scale(1.03); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); }
+            .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+            .fade-in.visible { opacity: 1; transform: translateY(0); }
+            .nav-active { color: #1E8449; border-bottom: 2px solid #1E8449; transition: border-color 0.3s ease; }
+            .section-bg { background: linear-gradient(180deg, #f9f9f9, #ffffff); }
+            .icon-hover { transition: color 0.3s ease, transform 0.3s ease; }
+            .icon-hover:hover { color: #D4AF37; transform: scale(1.1); }
+            .btn-green { background: linear-gradient(90deg, #1E8449, #2ECC71); transition: background 0.3s ease, transform 0.3s ease; }
+            .btn-green:hover { background: linear-gradient(90deg, #166d38, #27ae60); transform: translateY(-3px); }
+            [dir="rtl"] .custom-list li { position: relative; padding-right: 1.75rem; transition: color 0.3s ease; }
+            [dir="rtl"] .custom-list li::before { content: '•'; position: absolute; right: -1.25rem; color: #1E8449; font-size: 1.5rem; }
+            [dir="ltr"] .custom-list li { position: relative; padding-left: 1.75rem; transition: color 0.3s ease; }
+            [dir="ltr"] .custom-list li::before { content: '•'; position: absolute; left: -1.25rem; color: #1E8449; font-size: 1.5rem; }
+            .custom-list li:hover { color: #D4AF37; }
+            .service-card { min-height: 520px; display: flex; flex-direction: column; justify-content: space-between; }
+            .slider { position: relative; overflow: hidden; }
+            .slide { display: none; transition: opacity 0.5s ease-in-out; }
+            .slide.active { display: block; }
+            .slider-dots { display: flex; justify-content: center; gap: 0.75rem; position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); }
+            .slider-dot { width: 1rem; height: 1rem; background: rgba(255, 255, 255, 0.5); border-radius: 50%; cursor: pointer; transition: background 0.3s; }
+            .slider-dot:hover, .slider-dot.active { background: #1E8449; }
+            .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; padding: 0.75rem; cursor: pointer; transition: background 0.3s; }
+            .slider-arrow:hover { background: rgba(0, 0, 0, 0.7); }
+            .slider-arrow.left { left: 1rem; }
+            .slider-arrow.right { right: 1rem; }
+            .input-focus { transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; }
+            .input-focus:focus { border-color: #1E8449; box-shadow: 0 0 0 4px rgba(30, 132, 73, 0.15); background-color: #f9f9f9; outline: 2px solid #1E8449; }
+            .input-focus:invalid:focus { border-color: #e53e3e; box-shadow: 0 0 0 4px rgba(229, 62, 62, 0.15); }
+            .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+            .back-to-top { position: fixed; bottom: 2rem; right: 2rem; display: none; background: linear-gradient(90deg, #1E8449, #D4AF37); color: white; padding: 0.75rem 1.5rem; rounded-full; shadow-lg; hover-scale; z-index: 50; transition: opacity 0.3s ease, transform 0.3s ease; }
+            .back-to-top.visible { display: flex; align-items: center; gap: 0.5rem; opacity: 1; justify-content: center; }
+            .back-to-top:hover { background: linear-gradient(90deg, #166d38, #b8972e); }
+            @media (max-width: 768px) {
+              .service-card { min-height: auto; }
+              .slider-arrow { padding: 0.5rem; }
+              .slider-dots { bottom: 0.5rem; }
+              .back-to-top { padding: 0.5rem 1rem; bottom: 1rem; right: 1rem; }
+              .back-to-top span { display: none; }
+            }
+           #page-loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #111;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
         }
-      }
 
-      .fade-out {
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.5s ease;
-      }
+        .spinner {
+          width: 50px;
+          height: 50px;
+          border: 5px solid #444;
+          border-top-color: #fff;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .fade-out {
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.5s ease;
+        }
+           .nav-link {
+          color: #e5e7eb; /* gray-300 */
+          padding: 0.5rem 0.75rem;
+          border-radius: 0.375rem;
+          transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+          color: #d4af37;
+        }
+        .nav-link:focus {
+          outline: 2px solid #1e8449;
+        }
+
+        .nav-link-mobile {
+          display: block;
+          color: #e5e7eb;
+          padding: 0.75rem 1rem;
+          transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-link-mobile:hover {
+          background-color: #14532d; /* dark green */
+          color: #d4af37;
+        }
+        .nav-link-mobile:focus {
+          outline: 2px solid #1e8449;
+        }
+      .footer-glass {
+
+          backdrop-filter: blur(12px);
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Links */
+        .footer-link {
+          display: inline-block;
+          transition: color 0.3s ease;
+          color: #d1d5db; /* Tailwind's gray-300 */
+        }
+        .footer-link:hover {
+          color: #d4af37;
+        }
+
+        /* Icons */
+        .icon-hover {
+          transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .icon-hover:hover {
+          transform: scale(1.1);
+          color: #d4af37 !important;
+        }
+
+        /* Button */
+        .btn-green {
+          background: linear-gradient(90deg, #1e8449, #2ecc71);
+          transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .btn-green:hover {
+          background: linear-gradient(90deg, #166d38, #27ae60);
+          transform: translateY(-2px);
+        }
+
+        /* Input Focus */
+        .input-focus {
+          transition: border-color 0.3s ease, box-shadow 0.3s ease,
+            background-color 0.3s ease;
+        }
+        .input-focus:focus {
+          border-color: #1e8449;
+          box-shadow: 0 0 0 3px rgba(30, 132, 73, 0.3);
+          background-color: #f9f9f9;
+          outline: none;
+        }
+        .input-focus:invalid:focus {
+          border-color: #e53e3e;
+          box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.3);
+        }
+
+        /* Container */
+        .container {
+          max-width: 1280px;
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        @media (min-width: 640px) {
+          .container {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+          }
+        }
+        @media (min-width: 1024px) {
+          .container {
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+        }
+
+        /* Responsive Grid Columns */
+        @media (min-width: 1024px) {
+          .lg\:grid-cols-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 1024px) {
+          .lg\:grid-cols-4 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 640px) {
+          .lg\:grid-cols-4 {
+            grid-template-columns: 1fr;
+          }
+          .sm\:flex-row {
+            flex-direction: column;
+          }
+          .sm\:flex-1 {
+            width: 100%;
+          }
+        }
+             .back-to-top {
+          position: fixed;
+          bottom: 2rem;
+          display: none;
+          background: linear-gradient(90deg, #1e8449, #d4af37);
+          color: white;
+          padding: 0.75rem;
+          border-radius: 9999px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          z-index: 50;
+          min-width: 3rem;
+          min-height: 3rem;
+        }
+        [dir="rtl"] .back-to-top {
+          left: 2rem !important;
+          right: unset !important;
+          text-align: right;
+        }
+        [dir="ltr"] .back-to-top {
+          right: 2rem !important;
+          left: unset !important;
+          text-align: left;
+        }
+        .back-to-top.visible {
+          display: flex;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 0.5rem;
+          opacity: 1;
+        }
+        .back-to-top:hover {
+          background: linear-gradient(90deg, #166d38, #b8972e);
+          transform: translateY(-3px);
+        }
+        .back-to-top span {
+          display: none;
+          text-align: center !important;
+          justify-content: center !important;
+        }
+        @media (max-width: 768px) {
+          .back-to-top {
+            padding: 0.5rem;
+            bottom: 1rem;
+            min-width: 2.5rem;
+            min-height: 2.5rem;
+          }
+          [dir="rtl"] .back-to-top {
+            left: 1rem !important;
+            right: unset !important;
+          }
+          [dir="ltr"] .back-to-top {
+            right: 1rem !important;
+            left: unset !important;
+          }
+          .back-to-top span {
+            display: none;
+            text-align: center !important;
+            justify-content: center !important;
+          }
+        }
     </style>
     <script>
       window.addEventListener("load", () => {
@@ -409,7 +590,7 @@
 
     <!-- Navigation -->
     <nav
-      class="fixed top-0 left-0 right-0 bg-gradient-to-b from-gray-900 to-green-700 text-white shadow-lg z-50"
+      class="fixed top-0 left-0 right-0 bg-gray-900 text-white shadow-lg z-50"
       aria-label="التنقل الرئيسي"
     >
       <div
@@ -540,34 +721,6 @@
         </button>
       </div>
     </nav>
-    <style>
-      .nav-link {
-        color: #e5e7eb; /* gray-300 */
-        padding: 0.5rem 0.75rem;
-        border-radius: 0.375rem;
-        transition: color 0.3s ease;
-      }
-      .nav-link:hover {
-        color: #d4af37;
-      }
-      .nav-link:focus {
-        outline: 2px solid #1e8449;
-      }
-
-      .nav-link-mobile {
-        display: block;
-        color: #e5e7eb;
-        padding: 0.75rem 1rem;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-      .nav-link-mobile:hover {
-        background-color: #14532d; /* dark green */
-        color: #d4af37;
-      }
-      .nav-link-mobile:focus {
-        outline: 2px solid #1e8449;
-      }
-    </style>
 
     <!-- Hero Slider Section -->
     <section
@@ -1383,10 +1536,10 @@
                     >البريد الإلكتروني:</strong
                   >
                   <a
-                    href="mailto:info@thearabplatform.com"
+                    href="mailto:abdulrahman@arabicplatform.com"
                     class="hover:text-[#D4AF37] transition-colors focus:outline focus:outline-green-600"
                   >
-                    info@thearabplatform.com
+                    abdulrahman@arabicplatform.com
                   </a>
                 </li>
                 <li>
@@ -1394,45 +1547,16 @@
                     >الهاتف/واتساب:</strong
                   >
                   <a
-                    href="tel:+966123456789"
+                    href="tel:+966562944400"
                     class="hover:text-[#D4AF37] transition-colors focus:outline focus:outline-green-600"
                   >
-                    +966 123 456 789
-                  </a>
-                </li>
-                <li>
-                  <strong data-en="LinkedIn:" data-ar="لينكدإن:"
-                    >لينكدإن:</strong
-                  >
-                  <a
-                    href="https://linkedin.com/company/thearabplatform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:text-[#D4AF37] transition-colors focus:outline focus:outline-green-600"
-                  >
-                    المنصة العربية
+                    <span dir="ltr">+966 56 294 4400</span>
                   </a>
                 </li>
               </ul>
-              <div class="mt-8 flex justify-center space-x-4 space-x-reverse">
-                <a
-                  href="https://linkedin.com/company/thearabplatform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="icon-hover text-white focus:outline focus:outline-green-600"
-                  aria-label="لينكدإن"
-                >
-                  <svg
-                    class="w-10 h-10"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-1.337-.026-3.06-1.865-3.06-1.867 0-2.152 1.458-2.152 2.966v5.698h-3v-11h2.884v1.508h.041c.402-.76 1.386-1.558 2.851-1.558 3.047 0 3.604 2.004 3.604 4.607v6.443z"
-                    />
-                  </svg>
-                </a>
-              </div>
+              <div
+                class="mt-8 flex justify-center space-x-4 space-x-reverse"
+              ></div>
             </div>
           </div>
         </div>
@@ -1440,7 +1564,7 @@
     </section>
 
     <footer
-      class="footer-glass text-white py-12"
+      class="footer-glass bg-gray-900 text-white py-12"
       aria-labelledby="footer-title"
     >
       <div class="container mx-auto px-4">
@@ -1581,21 +1705,25 @@
             <ul class="space-y-3 text-sm text-gray-300">
               <li>
                 <a
-                  href="mailto:info@arabplatform.com"
-                  class="footer-link"
-                  data-en="Email: info@arabplatform.com"
-                  data-ar="البريد الإلكتروني: info@arabplatform.com"
-                  >البريد الإلكتروني: info@arabplatform.com</a
+                  href="mailto:abdulrahman@arabicplatform.com"
+                  id="email-link"
+                  data-en="Email: abdulrahman@arabicplatform.com"
+                  data-ar="الايميل: abdulrahman@arabicplatform.com"
+                  dir="auto"
                 >
+                  الايميل : abdulrahman@arabicplatform.com
+                </a>
               </li>
               <li>
                 <a
-                  href="tel:+966123456789"
+                  href="tel:+966562944400"
                   class="footer-link"
-                  data-en="Phone: +966 123 456 789"
-                  data-ar="الهاتف: +966 123 456 789"
-                  >الهاتف: +966 123 456 789</a
+                  data-en="Phone: +966 56 294 4400"
+                  data-ar="الهاتف: +966 56 294 4400"
+                  dir="rtl"
                 >
+                  الهاتف: <span dir="ltr">+966 56 294 4400</span>
+                </a>
               </li>
               <li>
                 <span
@@ -1674,103 +1802,6 @@
       </div>
     </footer>
 
-    <style>
-      .footer-glass {
-        background: linear-gradient(to bottom, #111827, #1e8449);
-        backdrop-filter: blur(12px);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      /* Links */
-      .footer-link {
-        display: inline-block;
-        transition: color 0.3s ease;
-        color: #d1d5db; /* Tailwind's gray-300 */
-      }
-      .footer-link:hover {
-        color: #d4af37;
-      }
-
-      /* Icons */
-      .icon-hover {
-        transition: transform 0.3s ease, color 0.3s ease;
-      }
-      .icon-hover:hover {
-        transform: scale(1.1);
-        color: #d4af37 !important;
-      }
-
-      /* Button */
-      .btn-green {
-        background: linear-gradient(90deg, #1e8449, #2ecc71);
-        transition: background 0.3s ease, transform 0.3s ease;
-      }
-      .btn-green:hover {
-        background: linear-gradient(90deg, #166d38, #27ae60);
-        transform: translateY(-2px);
-      }
-
-      /* Input Focus */
-      .input-focus {
-        transition: border-color 0.3s ease, box-shadow 0.3s ease,
-          background-color 0.3s ease;
-      }
-      .input-focus:focus {
-        border-color: #1e8449;
-        box-shadow: 0 0 0 3px rgba(30, 132, 73, 0.3);
-        background-color: #f9f9f9;
-        outline: none;
-      }
-      .input-focus:invalid:focus {
-        border-color: #e53e3e;
-        box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.3);
-      }
-
-      /* Container */
-      .container {
-        max-width: 1280px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-      @media (min-width: 640px) {
-        .container {
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-        }
-      }
-      @media (min-width: 1024px) {
-        .container {
-          padding-left: 2rem;
-          padding-right: 2rem;
-        }
-      }
-
-      /* Responsive Grid Columns */
-      @media (min-width: 1024px) {
-        .lg\:grid-cols-4 {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-      }
-      @media (max-width: 1024px) {
-        .lg\:grid-cols-4 {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-      @media (max-width: 640px) {
-        .lg\:grid-cols-4 {
-          grid-template-columns: 1fr;
-        }
-        .sm\:flex-row {
-          flex-direction: column;
-        }
-        .sm\:flex-1 {
-          width: 100%;
-        }
-      }
-    </style>
-
     <!-- Back to Top Button -->
     <button
       class="back-to-top rounded-full focus:outline focus:outline-green-600 flex justify-center items-center"
@@ -1799,68 +1830,5 @@
         class="hidden md:inline"
       ></span>
     </button>
-    <style>
-      .back-to-top {
-        position: fixed;
-        bottom: 2rem;
-        display: none;
-        background: linear-gradient(90deg, #1e8449, #d4af37);
-        color: white;
-        padding: 0.75rem;
-        border-radius: 9999px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        z-index: 50;
-        min-width: 3rem;
-        min-height: 3rem;
-      }
-      [dir="rtl"] .back-to-top {
-        left: 2rem !important;
-        right: unset !important;
-        text-align: right;
-      }
-      [dir="ltr"] .back-to-top {
-        right: 2rem !important;
-        left: unset !important;
-        text-align: left;
-      }
-      .back-to-top.visible {
-        display: flex;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 0.5rem;
-        opacity: 1;
-      }
-      .back-to-top:hover {
-        background: linear-gradient(90deg, #166d38, #b8972e);
-        transform: translateY(-3px);
-      }
-      .back-to-top span {
-        display: none;
-        text-align: center !important;
-        justify-content: center !important;
-      }
-      @media (max-width: 768px) {
-        .back-to-top {
-          padding: 0.5rem;
-          bottom: 1rem;
-          min-width: 2.5rem;
-          min-height: 2.5rem;
-        }
-        [dir="rtl"] .back-to-top {
-          left: 1rem !important;
-          right: unset !important;
-        }
-        [dir="ltr"] .back-to-top {
-          right: 1rem !important;
-          left: unset !important;
-        }
-        .back-to-top span {
-          display: none;
-          text-align: center !important;
-          justify-content: center !important;
-        }
-      }
-    </style>
   </body>
 </html>
